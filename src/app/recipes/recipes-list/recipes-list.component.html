@@ -10,6 +10,7 @@
   <div class='col-xl-12'>
     <app-recipe-item
       *ngFor='let recipeEl of recipes'
+      (click)='selectRecipe(recipeEl)'
       [recipe]='recipeEl'
     />
   </div>

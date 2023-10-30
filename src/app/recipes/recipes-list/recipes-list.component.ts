@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Recipe } from '../recipe.model';
 
 @Component({
@@ -7,6 +7,8 @@ import { Recipe } from '../recipe.model';
   styleUrls: ['./recipes-list.component.scss']
 })
 export class RecipesListComponent {
+  @Output() onSetRecipeDetails = new EventEmitter()
+
   recipes: Recipe[] = [
     new Recipe(
       'Пицца',
@@ -14,10 +16,13 @@ export class RecipesListComponent {
       'https://cs8.pikabu.ru/avatars/2607/x2607423-868906487.png'
     ),
     new Recipe(
-      'Пицца',
-      'Рецепт вкусной пиццы',
+      'Пицца2',
+      'Рецепт вкусной пиццы 2',
       'https://cs8.pikabu.ru/avatars/2607/x2607423-868906487.png'
     ),
   ]
 
+  selectRecipe(recipe: Recipe) {
+    this.onSetRecipeDetails.emit(recipe)
+  }
 }

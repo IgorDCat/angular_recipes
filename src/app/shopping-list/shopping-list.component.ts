@@ -12,4 +12,8 @@ export class ShoppingListComponent {
     new Ingredient('Сыр', 1),
     new Ingredient('Помидоры', 2),
   ]
+
+  addIngredient(ingredient: Ingredient) {
+    this.ingredients.unshift(ingredient)
+  }
 }
