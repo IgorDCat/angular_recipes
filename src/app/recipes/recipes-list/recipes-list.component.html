@@ -8,18 +8,9 @@
 </div>
 <div class='row'>
   <div class='col-xl-12'>
-    <a *ngFor='let recipe of recipes'
-       href='#'
-       class='list-group-item clearfix app-card'
-    >
-      <div class='float-start '>
-        <h4 class='list-group-item card-title'>{{ recipe.name }}</h4>
-        <p class='list-group-item'>{{ recipe.description }}</p>
-      </div>
-      <span class='float-end'>
-        <img ngSrc='{{ recipe.imagePath }}' alt='{{ recipe.name }}' width='200' height="200">
-      </span>
-    </a>
-    <app-recipe-item></app-recipe-item>
+    <app-recipe-item
+      *ngFor='let recipeEl of recipes'
+      [recipe]='recipeEl'
+    />
   </div>
 </div>

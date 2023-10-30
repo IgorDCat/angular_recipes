@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular_recipes';
+  currPage = 'recipes'
+
+  setCurrentPage(page: string) {
+    this.currPage = page
+  }
 }

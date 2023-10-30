@@ -11,12 +11,12 @@ export class RecipesListComponent {
     new Recipe(
       'Пицца',
       'Рецепт вкусной пиццы',
-      'https://play-lh.googleusercontent.com/r179cHWnuPP9OAoE0vIC_WhmgsHcHxvmWEkQ43VpOB22Ex7XOsCmYrp-WdCbD7D0mA'
+      'https://cs8.pikabu.ru/avatars/2607/x2607423-868906487.png'
     ),
     new Recipe(
       'Пицца',
       'Рецепт вкусной пиццы',
-      'https://play-lh.googleusercontent.com/r179cHWnuPP9OAoE0vIC_WhmgsHcHxvmWEkQ43VpOB22Ex7XOsCmYrp-WdCbD7D0mA'
+      'https://cs8.pikabu.ru/avatars/2607/x2607423-868906487.png'
     ),
   ]
 
