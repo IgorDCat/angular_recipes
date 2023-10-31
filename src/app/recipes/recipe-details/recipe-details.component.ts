@@ -13,7 +13,7 @@ export class RecipeDetailsComponent {
   constructor(private slService: ShoppingListService) {
   }
 
-  toShoppingList() {
+  addToShoppingList() {
     if(this.currentRecipe?.ingredients) {
       this.slService.setIngredients(this.currentRecipe?.ingredients)
     }
