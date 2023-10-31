@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
 import {Ingredient} from '../shared/ingredient.model';
+import { ShoppingListService } from './shopping-list.service';
 
 @Component({
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
-  styleUrls: ['./shopping-list.component.scss']
+  styleUrls: ['./shopping-list.component.scss'],
+  providers: [ShoppingListService]
 })
 export class ShoppingListComponent {
-  ingredients: Ingredient[] = [
-    new Ingredient('Тесто', 1),
-    new Ingredient('Сыр', 1),
-    new Ingredient('Помидоры', 2),
-  ]
-
-  addIngredient(ingredient: Ingredient) {
-    this.ingredients.unshift(ingredient)
+  constructor(private slService: ShoppingListService) {
   }
+
+  ingredients: Ingredient[] = this.slService.getIngredients()
+  // addIngredient(ingredient: Ingredient) {
+  //   this.ingredients.unshift(ingredient)
+  // }
 }
