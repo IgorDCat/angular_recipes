@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Recipe } from '../recipe.model';
+import { ShoppingListService } from '../../shopping-list/shopping-list.service';
 
 @Component({
   selector: 'app-recipe-details',
@@ -8,4 +9,13 @@ import { Recipe } from '../recipe.model';
 })
 export class RecipeDetailsComponent {
   @Input() currentRecipe: Recipe | undefined
+
+  constructor(private slService: ShoppingListService) {
+  }
+
+  toShoppingList() {
+    if(this.currentRecipe?.ingredients) {
+      this.slService.setIngredients(this.currentRecipe?.ingredients)
+    }
+  }
 }

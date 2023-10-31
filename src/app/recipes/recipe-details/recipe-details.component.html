@@ -22,7 +22,11 @@
         Manage Recipe <span class='caret'></span>
       </button>
       <ul ngbDropdownMenu class='dropdown-menu'>
-        <li><a ngbDropdownItem href='#'>To Shopping List</a></li>
+        <li (click)='toShoppingList()'>
+          <a ngbDropdownItem href='#'>
+            Add To Shopping List
+          </a>
+        </li>
         <li><a ngbDropdownItem href='#'>Edit Recipe</a></li>
         <li><a ngbDropdownItem href='#'>Delete Recipe</a></li>
       </ul>
