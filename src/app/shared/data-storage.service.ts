@@ -11,7 +11,7 @@ export class DataStorageService {
   constructor(private http: HttpClient, private recipeService: RecipeService) {
   }
 
-  storeRecipes(): Observable<any> {
+  storeRecipes(): Observable<Object> {
     const recipes: Recipe[] = this.recipeService.getRecipes()
     return this.http.put(
       'https://recipe-book-481dc-default-rtdb.europe-west1.firebasedatabase.app/recipes.json',
@@ -20,9 +20,10 @@ export class DataStorageService {
   }
 
   fetchRecipes() {
-    const recipes: Recipe[] = this.recipeService.getRecipes()
-    this.http.get(
+    this.http.get<Recipe[]>(
       'https://recipe-book-481dc-default-rtdb.europe-west1.firebasedatabase.app/recipes.json')
-      .subscribe(resp => console.log(resp))
+      .subscribe(response => {
+        this.recipeService.setRecipes(response)
+      })
   }
 }
