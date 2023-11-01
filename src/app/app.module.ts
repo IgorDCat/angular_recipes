@@ -13,6 +13,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgOptimizedImage } from "@angular/common";
 import { FormsModule } from '@angular/forms';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
+import { HttpClientModule } from '@angular/common/http';
+import { RecipeService } from './recipes/recipe.service';
 
 @NgModule({
   declarations: [
@@ -30,9 +32,10 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
     AppRoutingModule,
     NgbModule,
     NgOptimizedImage,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [ShoppingListService],
+  providers: [RecipeService, ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

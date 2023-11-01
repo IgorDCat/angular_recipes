@@ -38,8 +38,8 @@
             Manage
           </a>
           <div ngbDropdownMenu aria-labelledby='navbarDropdown2' class='dropdown-menu dropdown-menu-end'>
-            <a ngbDropdownItem>Save data</a>
-            <a ngbDropdownItem>Fetch data</a>
+            <a ngbDropdownItem (click)='saveData()'>Save data</a>
+            <a ngbDropdownItem (click)='fetchData()'>Fetch data</a>
           </div>
         </li>
       </ul>
