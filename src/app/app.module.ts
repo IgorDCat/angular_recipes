@@ -15,6 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RecipeService } from './recipes/recipe.service';
+import { ActionReducer, StoreModule } from '@ngrx/store';
+import { recipesReducer } from './store/recipes.reducer';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { RecipeService } from './recipes/recipe.service';
     NgbModule,
     NgOptimizedImage,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({recipes: recipesReducer as ActionReducer<any, any>}),
   ],
   providers: [RecipeService, ShoppingListService],
   bootstrap: [AppComponent]

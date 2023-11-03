@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe.model';
-import { RecipeService } from '../recipe.service';
+import { select, Store } from '@ngrx/store';
+import { Selectors } from '../../store/selectors';
 
 @Component({
   selector: 'app-recipes-list',
@@ -10,13 +11,14 @@ import { RecipeService } from '../recipe.service';
 export class RecipesListComponent implements OnInit {
   recipes: Recipe[] | undefined
 
-  constructor(private recipeService: RecipeService) {
-  }
+  constructor(
+    private store: Store<{ recipes: Recipe[] }>,
+    private selectors: Selectors
+  ) { }
 
   ngOnInit() {
-    this.recipes = this.recipeService.getRecipes()
-    this.recipeService.recipesChanged.subscribe((recipes) => {
-      this.recipes = recipes
-    })
+    this.store
+      .pipe(select(this.selectors.selectRecipes))
+      .subscribe(state => this.recipes = state.recipes)
   }
 }

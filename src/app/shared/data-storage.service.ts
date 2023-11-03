@@ -19,11 +19,8 @@ export class DataStorageService {
     )
   }
 
-  fetchRecipes() {
-    this.http.get<Recipe[]>(
+  fetchRecipes(): Observable<Recipe[]> {
+    return this.http.get<Recipe[]>(
       'https://recipe-book-481dc-default-rtdb.europe-west1.firebasedatabase.app/recipes.json')
-      .subscribe(response => {
-        this.recipeService.setRecipes(response)
-      })
   }
 }
